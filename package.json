@@ -17,7 +17,71 @@
         "command": "extension.helloWorld",
         "title": "Hello World"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Foobar",
+      "properties": {
+        "foobar.config1": {
+          "type": "boolean",
+          "default": false,
+          "description": "Foobar configuration one."
+        },
+        "foobar.config2": {
+          "type": ["string", "null"],
+          "default": null,
+          "description": "Foobar configuration two."
+        },
+        "foobar.config3": {
+          "type": "number",
+          "default": 3.5,
+          "description": "Foobar configuration three."
+        },
+        "foobar.config4": {
+          "type": "string",
+          "enum": ["option1", "option2", "option3"],
+          "enumDescriptions": [
+            "The first option",
+            "The second option",
+            "The third option"
+          ],
+          "default": "option1",
+          "description": "Foobar configuration four."
+        },
+        "foobar.config5": {
+          "type": "object",
+          "description": "Nested settings example.",
+          "properties": {
+            "prop1": {
+              "type": "integer",
+              "description": "config5 prop1"
+            },
+            "prop2": {
+              "type": "boolean",
+              "description": "config5 prop2"
+            }
+          },
+          "//": "object settings should've `additionalProperties` set to false to render in the UI",
+          "additionalProperties": false
+        },
+        "foobar.subConfig.config6": {
+          "type": "string",
+          "description": "subconfig config6"
+        },
+        "foobar.subConfig.config7": {
+          "type": "string",
+          "markdownDescription": "**subconfig** config7",
+          "editPresentation": "multilineText"
+        },
+        "foobar.config8": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "array config example.",
+          "default": [3, 5, 8]
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
